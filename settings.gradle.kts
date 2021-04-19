@@ -1,3 +1,4 @@
+include(":favorites")
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -12,5 +13,6 @@ include(":app", ":ui")
 // Ui
 include(
         ":ui:common",
-        ":ui:main"
+        ":ui:main",
+        ":ui:favorites"
 )
