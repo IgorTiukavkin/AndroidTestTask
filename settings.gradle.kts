@@ -1,4 +1,3 @@
-include(":favorites")
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -8,11 +7,27 @@ pluginManagement {
 }
 rootProject.name = "AndroidTestTask"
 
-include(":app", ":ui")
-
-// Ui
+// Modules
+include(
+        ":app",
+        ":ui",
+        ":presentation",
+        ":features"
+)
+// UI
 include(
         ":ui:common",
         ":ui:main",
-        ":ui:favorites"
+        ":ui:favorites",
+        ":ui:media"
+)
+// Presentation
+include(
+        ":presentation:common",
+        ":presentation:favorites"
+)
+// Features
+include(
+        ":features:common",
+        ":features:favorites"
 )

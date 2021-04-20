@@ -26,8 +26,4 @@ dependencies {
     implementation("androidx.fragment:fragment-ktx:1.3.2")
     implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
     implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
-
-    implementation(project(":ui:common"))
-    implementation(project(":ui:media"))
-    implementation(project(":presentation:favorites"))
 }

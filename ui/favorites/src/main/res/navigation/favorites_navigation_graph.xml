@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/favorites_navigation_graph"
+    app:startDestination="@id/favorites_fragment">
+
+    <include app:graph="@navigation/album_details_navigation_graph" />
+
+    <fragment
+        android:id="@+id/favorites_fragment"
+        android:name="com.test.favorites.FavoritesFragment"
+        android:label="FavoritesFragment" >
+        <action
+            android:id="@+id/from_favorites_to_album_details"
+            app:destination="@id/album_details_navigation_graph">
+            <argument
+                android:name="album_id"
+                app:argType="integer" />
+        </action>
+
+    </fragment>
+
+</navigation>
