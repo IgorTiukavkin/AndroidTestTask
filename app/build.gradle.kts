@@ -47,6 +47,17 @@ dependencies {
     implementation("androidx.core:core-ktx:1.3.2")
     implementation("androidx.fragment:fragment-ktx:1.3.2")
 
+    implementation("org.koin:koin-core:2.2.2")
+    implementation("org.koin:koin-core-ext:2.2.2")
+    implementation("org.koin:koin-android:2.2.2")
+    implementation("org.koin:koin-androidx-ext:2.2.2")
+
     implementation(project(":ui:common"))
     implementation(project(":ui:main"))
+    // Features
+    implementation(project(":features:common"))
+    implementation(project(":features:favorites"))
+    // Presentation
+    implementation(project(":presentation:common"))
+    implementation(project(":presentation:favorites"))
 }

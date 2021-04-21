@@ -1,10 +1,12 @@
 package com.test.presentation
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.test.common.withLatestFrom
 import com.test.favorites.GetFavoritesUseCase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
 import java.net.URL
 
 class FavoritesViewModel(
