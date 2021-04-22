@@ -12,9 +12,9 @@ class GetFavoritesUseCaseImpl: GetFavoritesUseCase {
 //        return emptyList()
         return listOf(
             FavoriteModel(
-                albumId = 10,
-                imageURLString = "https://images-na.ssl-images-amazon.com/images/I/91YyfXFsTtL._SL1425_.jpg",
-                title = "Dookie"
+                albumId = "asdf-asdfdsf-adfs23-fadsf",
+                imageURL = "https://images-na.ssl-images-amazon.com/images/I/91YyfXFsTtL._SL1425_.jpg",
+                name = "Dookie"
             )
         )
     }

@@ -25,8 +25,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1")
     // Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
     // Modules
     implementation(project(":presentation:common"))
     implementation(project(":features:common"))

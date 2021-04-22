@@ -19,7 +19,7 @@
             app:popExitAnim="@anim/animation_fade_out">
             <argument
                 android:name="album_id"
-                app:argType="integer" />
+                app:argType="string" />
         </action>
 
     </fragment>

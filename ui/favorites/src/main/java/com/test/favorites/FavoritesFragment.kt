@@ -73,7 +73,7 @@ class FavoritesFragment: Fragment(R.layout.favorites_layout) {
         }.launchIn(lifecycleScope)
     }
 
-    private fun navigateToAlbumDetails(id: Int) {
+    private fun navigateToAlbumDetails(id: String) {
         val destination = FavoritesFragmentDirections.fromFavoritesToAlbumDetails(id)
         val navController = findNavController(requireView())
         navController.navigateUp()
