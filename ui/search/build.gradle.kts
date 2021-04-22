@@ -41,5 +41,6 @@ dependencies {
     implementation("org.koin:koin-androidx-fragment:2.2.2")
 
     implementation(project(":ui:common"))
+    implementation(project(":presentation:common"))
     implementation(project(":presentation:search"))
 }

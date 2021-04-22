@@ -7,4 +7,7 @@
     <string name="album_details_title">Album details</string>
     <string name="search_btn_desc">Search button</string>
     <string name="search_title">Search</string>
+    <string name="search_placeholder">Album name…</string>
+    <string name="favorite_selected">In Favorites</string>
+    <string name="favorite_unselected">Not In Favorites</string>
 </resources>

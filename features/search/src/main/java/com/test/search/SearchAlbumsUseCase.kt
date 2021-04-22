@@ -2,6 +2,7 @@ package com.test.search
 
 import com.test.common.models.AlbumModel
 import com.test.common.network.APIClient
+import java.lang.Exception
 
 interface SearchAlbumsUseCase {
     suspend fun searchAlbums(name: String) : List<AlbumModel>
@@ -12,6 +13,10 @@ class SearchAlbumsUseCaseImpl(
 ) : SearchAlbumsUseCase {
 
     override suspend fun searchAlbums(name: String): List<AlbumModel> {
-        return apiClient.searchAlbums(name)
+        return try {
+            apiClient.searchAlbums(name)
+        } catch (e: Exception) {
+            emptyList()
+        }
     }
 }
