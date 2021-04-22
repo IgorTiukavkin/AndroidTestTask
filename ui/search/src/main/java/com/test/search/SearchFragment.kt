@@ -56,7 +56,8 @@ class SearchFragment: Fragment(R.layout.search_fragment_layout) {
         }
         // Input
         val input = SearchViewModel.Input(
-            name = onTextChange.asFlow()
+            name = onTextChange.asFlow(),
+            didSelectAtIndex = adapter.onItemClick.asFlow()
         )
         // Output
         val output = viewModel.bind(input)

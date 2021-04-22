@@ -1,21 +1,17 @@
 package com.test.favorites
 
+import com.test.common.database.DatabaseAPI
 import com.test.common.models.FavoriteModel
 
 interface GetFavoritesUseCase {
     suspend fun getFavorites() : List<FavoriteModel>
 }
 
-class GetFavoritesUseCaseImpl: GetFavoritesUseCase {
+class GetFavoritesUseCaseImpl(
+    private val databaseAPI: DatabaseAPI
+): GetFavoritesUseCase {
 
     override suspend fun getFavorites(): List<FavoriteModel> {
-//        return emptyList()
-        return listOf(
-            FavoriteModel(
-                albumId = "asdf-asdfdsf-adfs23-fadsf",
-                imageURL = "https://images-na.ssl-images-amazon.com/images/I/91YyfXFsTtL._SL1425_.jpg",
-                name = "Dookie"
-            )
-        )
+        return databaseAPI.getFavorites()
     }
 }

@@ -1,0 +1,22 @@
+CREATE TABLE FavoritesTable (
+    id TEXT NOT NULL PRIMARY KEY,
+    imageURL TEXT,
+    name TEXT NOT NULL
+);
+
+addFavorite:
+INSERT OR REPLACE INTO FavoritesTable VALUES ?;
+
+selectAll:
+SELECT *
+FROM FavoritesTable;
+
+getFavoriteById:
+SELECT *
+FROM FavoritesTable
+WHERE id = ?;
+
+removeFavorite:
+DELETE
+FROM FavoritesTable
+WHERE id = ?;

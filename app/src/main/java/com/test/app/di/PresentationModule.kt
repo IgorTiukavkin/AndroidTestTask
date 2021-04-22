@@ -8,6 +8,6 @@ import org.koin.dsl.module
 val presentationModule = module {
 
     viewModel { FavoritesViewModel(useCase = get()) }
-    viewModel { SearchViewModel(searchAlbumsUseCase = get()) }
+    viewModel { SearchViewModel(searchAlbumsUseCase = get(), manageFavoritesUseCase = get()) }
 
 }

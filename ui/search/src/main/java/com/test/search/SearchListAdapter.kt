@@ -5,12 +5,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.test.search.databinding.SearchListItemBinding
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.channels.BroadcastChannel
+import kotlinx.coroutines.channels.ConflatedBroadcastChannel
 
+@ExperimentalCoroutinesApi
 class SearchListAdapter: RecyclerView.Adapter<SearchListAdapter.ViewHolder>() {
 
     class ViewHolder (val binding: SearchListItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     private var items: List<AlbumListItem> = emptyList()
+    val onItemClick = BroadcastChannel<Int>(1)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -29,6 +34,9 @@ class SearchListAdapter: RecyclerView.Adapter<SearchListAdapter.ViewHolder>() {
         } else {
             holder.binding.isFavoriteImageView.setImageResource(R.drawable.ic_star_unselected)
             holder.binding.isFavoriteImageView.contentDescription = context.getString(R.string.favorite_unselected)
+        }
+        holder.itemView.setOnClickListener {
+            onItemClick.offer(position)
         }
     }
 

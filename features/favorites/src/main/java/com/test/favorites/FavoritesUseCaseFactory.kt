@@ -1,8 +1,16 @@
 package com.test.favorites
 
-class FavoritesUseCaseFactory {
+import com.test.common.database.DatabaseAPI
+
+class FavoritesUseCaseFactory(
+    private val databaseAPI: DatabaseAPI
+) {
 
     fun createGetFavoritesUseCase() : GetFavoritesUseCase {
-        return GetFavoritesUseCaseImpl()
+        return GetFavoritesUseCaseImpl(databaseAPI = databaseAPI)
+    }
+
+    fun createManageFavoritesUseCase() : ManageFavoritesUseCase {
+        return ManageFavoritesUseCaseImpl(databaseAPI = databaseAPI)
     }
 }

@@ -31,5 +31,6 @@ dependencies {
 
     implementation(project(":features:common"))
     implementation(project(":features:search"))
+    implementation(project(":features:favorites"))
     implementation(project(":presentation:common"))
 }

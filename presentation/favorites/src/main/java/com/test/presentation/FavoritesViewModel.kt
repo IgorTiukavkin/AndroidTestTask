@@ -1,13 +1,9 @@
 package com.test.presentation
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.test.common.network.APIClient
-import com.test.common.withLatestFrom
 import com.test.favorites.GetFavoritesUseCase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.launch
 
 class FavoritesViewModel(
     private val useCase: GetFavoritesUseCase
@@ -24,21 +20,22 @@ class FavoritesViewModel(
     )
 
     fun bind(input: Input) : Output {
+
         val items = input
             .refresh
             .map { useCase.getFavorites() }
 
         val routeToAlbumId = input
-            .didSelectAtIndex
-            .withLatestFrom(items) { index, objects ->
-                objects[index]
-            }.map { it.albumId }
+            .didSelectAtIndex.map {
+                val objects = useCase.getFavorites()
+                objects[it].albumId
+            }
 
         return Output(
             items = items.map { models ->
                 models.map {
                     FavoriteItem(
-                        imageURLString= it.imageURL,
+                        imageURL= it.imageURL,
                         title = it.name
                     )
                 }

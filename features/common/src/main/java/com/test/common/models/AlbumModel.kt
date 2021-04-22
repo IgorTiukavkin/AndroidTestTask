@@ -19,4 +19,6 @@ data class AlbumModel(
         val size: String
     )
 
+    val id: String
+        get() = name + artist + mbid
 }
