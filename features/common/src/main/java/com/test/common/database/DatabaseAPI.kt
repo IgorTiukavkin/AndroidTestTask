@@ -10,7 +10,8 @@ import com.test.features.common.FavoritesTable
 
 interface DatabaseAPI {
     suspend fun getFavorites() : List<FavoriteModel>
-    suspend fun addFavorite(model: AlbumModel)
+    suspend fun getFavoriteById(id: String) : FavoriteModel
+    suspend fun addFavorite(id: String, imageURL: String?, name: String)
     suspend fun removeFavorite(id: String)
     suspend fun isFavorite(id: String) : Boolean
 }
@@ -31,13 +32,22 @@ class DatabaseAPIImpl(
             )
         }
 
-    override suspend fun addFavorite(model: AlbumModel) {
+    override suspend fun getFavoriteById(id: String): FavoriteModel  =
+        database.favoritesTableQueries.getFavoriteById(id).executeAsList().map {
+            FavoriteModel(
+                albumId = it.id,
+                imageURL = it.imageURL,
+                name = it.name
+            )
+        }.first()
+
+    override suspend fun addFavorite(id: String, imageURL: String?, name: String) {
         database.favoritesTableQueries.transaction {
             database.favoritesTableQueries.addFavorite(
                 FavoritesTable(
-                    id = model.id,
-                    imageURL = model.images.lastOrNull()?.url,
-                    name = model.name
+                    id = id,
+                    imageURL = imageURL,
+                    name = name
                 )
             )
         }

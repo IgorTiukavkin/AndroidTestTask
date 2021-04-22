@@ -9,6 +9,7 @@ val useCasesModule = module {
     single { FavoritesUseCaseFactory(databaseAPI = get()) }
     factory { (get() as FavoritesUseCaseFactory).createGetFavoritesUseCase() }
     factory { (get() as FavoritesUseCaseFactory).createManageFavoritesUseCase() }
+    factory { (get() as FavoritesUseCaseFactory).createGetFavoriteByIdUseCase() }
 
     single { SearchUseCaseFactory() }
     factory { (get() as SearchUseCaseFactory).createSearchAlbumsUseCase(apiClient = get()) }

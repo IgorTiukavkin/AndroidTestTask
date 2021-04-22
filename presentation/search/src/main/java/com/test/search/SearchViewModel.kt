@@ -38,7 +38,7 @@ class SearchViewModel(
                 val album = models[index]
                 val isFavorite = manageFavoritesUseCase.isFavorite(album.id)
                 if (isFavorite) manageFavoritesUseCase.removeFavorite(album.id)
-                else manageFavoritesUseCase.addFavorite(album)
+                else manageFavoritesUseCase.addFavorite(album.id, album.images.lastOrNull()?.url, album.name)
                 update.offer(searchRequest)
             }.launchIn(viewModelScope)
 

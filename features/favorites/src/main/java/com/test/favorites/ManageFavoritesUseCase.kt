@@ -5,7 +5,7 @@ import com.test.common.models.AlbumModel
 
 interface ManageFavoritesUseCase {
     suspend fun isFavorite(id: String) : Boolean
-    suspend fun addFavorite(album: AlbumModel)
+    suspend fun addFavorite(id: String, imageURL: String?, name: String)
     suspend fun removeFavorite(id: String)
 }
 
@@ -17,8 +17,8 @@ class ManageFavoritesUseCaseImpl(
         return databaseAPI.isFavorite(id)
     }
 
-    override suspend fun addFavorite(album: AlbumModel) {
-        databaseAPI.addFavorite(album)
+    override suspend fun addFavorite(id: String, imageURL: String?, name: String) {
+        databaseAPI.addFavorite(id, imageURL, name)
     }
 
     override suspend fun removeFavorite(id: String) {

@@ -62,4 +62,5 @@ dependencies {
     implementation(project(":presentation:common"))
     implementation(project(":presentation:favorites"))
     implementation(project(":presentation:search"))
+    implementation(project(":presentation:media"))
 }

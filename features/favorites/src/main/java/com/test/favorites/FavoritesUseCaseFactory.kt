@@ -13,4 +13,8 @@ class FavoritesUseCaseFactory(
     fun createManageFavoritesUseCase() : ManageFavoritesUseCase {
         return ManageFavoritesUseCaseImpl(databaseAPI = databaseAPI)
     }
+
+    fun createGetFavoriteByIdUseCase() : GetFavoriteByIdUseCase {
+        return GetFavoriteByIdUseCaseImpl(databaseAPI = databaseAPI)
+    }
 }

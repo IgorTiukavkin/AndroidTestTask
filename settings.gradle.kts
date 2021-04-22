@@ -26,7 +26,8 @@ include(
 include(
     ":presentation:common",
     ":presentation:favorites",
-    ":presentation:search"
+    ":presentation:search",
+    ":presentation:media"
 )
 // Features
 include(

@@ -10,4 +10,6 @@
     <string name="search_placeholder">Album name…</string>
     <string name="favorite_selected">In Favorites</string>
     <string name="favorite_unselected">Not In Favorites</string>
+    <string name="favorite_add">Add to Favorites</string>
+    <string name="favorite_remove">Remove from Favorites</string>
 </resources>
