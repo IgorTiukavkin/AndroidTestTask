@@ -26,6 +26,10 @@ dependencies {
     implementation("androidx.fragment:fragment-ktx:1.3.2")
     implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
     implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
+    implementation("androidx.recyclerview:recyclerview:1.2.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
+
+    implementation("io.coil-kt:coil:1.2.0")
 
     //Koin
     implementation("org.koin:koin-core:2.2.2")

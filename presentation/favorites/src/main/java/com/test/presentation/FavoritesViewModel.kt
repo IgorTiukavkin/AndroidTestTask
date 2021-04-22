@@ -5,7 +5,9 @@ import androidx.lifecycle.viewModelScope
 import com.test.common.withLatestFrom
 import com.test.favorites.GetFavoritesUseCase
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.launch
 import java.net.URL
 
@@ -38,7 +40,7 @@ class FavoritesViewModel(
             items = items.map { models ->
                 models.map {
                     FavoriteItem(
-                        imageURL = URL(it.imageURLString),
+                        imageURLString= it.imageURLString,
                         title = it.title
                     )
                 }
