@@ -3,4 +3,7 @@
     <string name="no_favorites_title">No favorites yet</string>
     <string name="no_favorites_info">Use search to add something to favorites</string>
     <string name="favorites_image">Favorites image</string>
+    <string name="favorites_title">Favorites</string>
+    <string name="album_details_title">Album details</string>
+    <string name="search_btn_desc">Search button</string>
 </resources>

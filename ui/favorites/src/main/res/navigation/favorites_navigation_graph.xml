@@ -12,7 +12,11 @@
         android:label="FavoritesFragment" >
         <action
             android:id="@+id/from_favorites_to_album_details"
-            app:destination="@id/album_details_navigation_graph">
+            app:destination="@id/album_details_navigation_graph"
+            app:enterAnim="@anim/animation_fade_in"
+            app:exitAnim="@anim/animation_fade_out"
+            app:popEnterAnim="@anim/animation_fade_in"
+            app:popExitAnim="@anim/animation_fade_out">
             <argument
                 android:name="album_id"
                 app:argType="integer" />

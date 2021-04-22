@@ -47,6 +47,7 @@ class FavoritesFragment: Fragment(R.layout.favorites_layout) {
     }
 
     private fun setupUI() {
+        activity?.title = getString(R.string.favorites_title)
         binding?.recyclerView?.let {
             it.adapter = this.adapter
             it.layoutManager = GridLayoutManager(requireContext(), 2)

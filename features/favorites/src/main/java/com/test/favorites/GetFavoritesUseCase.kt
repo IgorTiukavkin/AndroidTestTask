@@ -9,6 +9,7 @@ interface GetFavoritesUseCase {
 class GetFavoritesUseCaseImpl: GetFavoritesUseCase {
 
     override suspend fun getFavorites(): List<FavoriteModel> {
+//        return emptyList()
         return listOf(
             FavoriteModel(
                 albumId = 10,

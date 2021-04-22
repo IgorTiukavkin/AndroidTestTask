@@ -23,5 +23,4 @@ dependencies {
     implementation("androidx.core:core-ktx:1.3.2")
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
 }

@@ -25,6 +25,11 @@ class AlbumDetailsFragment : Fragment(R.layout.fragment_album_details) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupUI()
+    }
+
+    private fun setupUI() {
+        activity?.title = getString(R.string.album_details_title)
         val albumId = args.albumId
         binding?.textView?.text = "Album ID: $albumId"
     }
