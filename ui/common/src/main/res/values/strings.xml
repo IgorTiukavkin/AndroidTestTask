@@ -6,4 +6,5 @@
     <string name="favorites_title">Favorites</string>
     <string name="album_details_title">Album details</string>
     <string name="search_btn_desc">Search button</string>
+    <string name="search_title">Search</string>
 </resources>

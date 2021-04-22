@@ -57,7 +57,9 @@ dependencies {
     // Features
     implementation(project(":features:common"))
     implementation(project(":features:favorites"))
+    implementation(project(":features:search"))
     // Presentation
     implementation(project(":presentation:common"))
     implementation(project(":presentation:favorites"))
+    implementation(project(":presentation:search"))
 }

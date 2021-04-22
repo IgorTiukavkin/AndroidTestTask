@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavDirections
 import androidx.navigation.Navigation.findNavController
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import androidx.recyclerview.widget.GridLayoutManager
@@ -52,6 +53,9 @@ class FavoritesFragment: Fragment(R.layout.favorites_layout) {
             it.adapter = this.adapter
             it.layoutManager = GridLayoutManager(requireContext(), 2)
         }
+        binding?.searchButton?.setOnClickListener {
+            navigateToSearch()
+        }
     }
 
     private fun bindViewModel() {
@@ -73,8 +77,19 @@ class FavoritesFragment: Fragment(R.layout.favorites_layout) {
         }.launchIn(lifecycleScope)
     }
 
+    // Navigation
+
     private fun navigateToAlbumDetails(id: String) {
         val destination = FavoritesFragmentDirections.fromFavoritesToAlbumDetails(id)
+        navigate(destination)
+    }
+
+    private fun navigateToSearch() {
+        val destination = FavoritesFragmentDirections.fromFavoritesToSearch()
+        navigate(destination)
+    }
+
+    private fun navigate(destination: NavDirections) {
         val navController = findNavController(requireView())
         navController.navigateUp()
         navController.navigate(destination)

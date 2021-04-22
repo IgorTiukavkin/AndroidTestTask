@@ -5,6 +5,7 @@
     app:startDestination="@id/favorites_fragment">
 
     <include app:graph="@navigation/album_details_navigation_graph" />
+    <include app:graph="@navigation/search_navigation_graph" />
 
     <fragment
         android:id="@+id/favorites_fragment"
@@ -20,6 +21,15 @@
             <argument
                 android:name="album_id"
                 app:argType="string" />
+        </action>
+
+        <action
+            android:id="@+id/from_favorites_to_search"
+            app:destination="@id/search_navigation_graph"
+            app:enterAnim="@anim/animation_fade_in"
+            app:exitAnim="@anim/animation_fade_out"
+            app:popEnterAnim="@anim/animation_fade_in"
+            app:popExitAnim="@anim/animation_fade_out">
         </action>
 
     </fragment>
