@@ -40,6 +40,17 @@ dependencies {
     implementation("org.koin:koin-androidx-scope:2.2.2")
     implementation("org.koin:koin-androidx-fragment:2.2.2")
 
+    //UI Bindings
+    implementation("io.github.reactivecircus.flowbinding:flowbinding-android:1.0.0")
+    implementation("io.github.reactivecircus.flowbinding:flowbinding-activity:1.0.0")
+    implementation("io.github.reactivecircus.flowbinding:flowbinding-appcompat:1.0.0")
+    implementation("io.github.reactivecircus.flowbinding:flowbinding-core:1.0.0")
+    implementation("io.github.reactivecircus.flowbinding:flowbinding-drawerlayout:1.0.0")
+    implementation("io.github.reactivecircus.flowbinding:flowbinding-lifecycle:1.0.0")
+    implementation("io.github.reactivecircus.flowbinding:flowbinding-navigation:1.0.0")
+    implementation("io.github.reactivecircus.flowbinding:flowbinding-preference:1.0.0")
+    implementation("io.github.reactivecircus.flowbinding:flowbinding-recyclerview:1.0.0")
+
     implementation(project(":ui:common"))
     implementation(project(":presentation:media"))
 }

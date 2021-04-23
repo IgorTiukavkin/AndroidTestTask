@@ -14,9 +14,12 @@ import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import reactivecircus.flowbinding.android.widget.editorActionEvents
+import reactivecircus.flowbinding.android.widget.textChangeEvents
 
 @FlowPreview
 @ExperimentalCoroutinesApi
@@ -25,8 +28,6 @@ class SearchFragment: Fragment(R.layout.search_fragment_layout) {
     private var binding: SearchFragmentLayoutBinding? = null
     private val viewModel by viewModel<SearchViewModel>()
     private val adapter = SearchListAdapter()
-
-    private val onTextChange = ConflatedBroadcastChannel<String>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = SearchFragmentLayoutBinding.inflate(inflater, container, false)
@@ -51,18 +52,17 @@ class SearchFragment: Fragment(R.layout.search_fragment_layout) {
     }
 
     private fun bindViewModel() {
-        binding?.textInput?.doOnTextChanged { text, _, _, _ ->
-            onTextChange.offer(text.toString())
+        binding?.let { binding ->
+            // Input
+            val input = SearchViewModel.Input(
+                name = binding.textInput.textChangeEvents().map { it.text.toString() },
+                didSelectAtIndex = adapter.onItemClick.asFlow()
+            )
+            // Output
+            val output = viewModel.bind(input)
+            output.albums.onEach {
+                adapter.update(it)
+            }.launchIn(lifecycleScope)
         }
-        // Input
-        val input = SearchViewModel.Input(
-            name = onTextChange.asFlow(),
-            didSelectAtIndex = adapter.onItemClick.asFlow()
-        )
-        // Output
-        val output = viewModel.bind(input)
-        output.albums.onEach {
-            adapter.update(it)
-        }.launchIn(lifecycleScope)
     }
 }

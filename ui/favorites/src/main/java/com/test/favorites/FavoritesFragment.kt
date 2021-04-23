@@ -6,16 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavDirections
 import androidx.navigation.Navigation.findNavController
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import androidx.recyclerview.widget.GridLayoutManager
+import com.test.common.mapToUnit
 import com.test.favorites.databinding.FavoritesLayoutBinding
 import com.test.presentation.FavoritesViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.*
+import reactivecircus.flowbinding.lifecycle.events
 
 @FlowPreview
 @ExperimentalCoroutinesApi
@@ -24,9 +27,6 @@ class FavoritesFragment: Fragment(R.layout.favorites_layout) {
     private var binding: FavoritesLayoutBinding? = null
     private val viewModel by viewModel<FavoritesViewModel>()
     private val adapter = FavoritesAdapter()
-
-    // Actions
-    private val refreshAction = MutableStateFlow(Unit)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FavoritesLayoutBinding.inflate(inflater, container, false)
@@ -42,9 +42,6 @@ class FavoritesFragment: Fragment(R.layout.favorites_layout) {
         super.onViewCreated(view, savedInstanceState)
         setupUI()
         bindViewModel()
-        lifecycleScope.launchWhenResumed {
-            refreshAction.emit(Unit)
-        }
     }
 
     private fun setupUI() {
@@ -62,7 +59,7 @@ class FavoritesFragment: Fragment(R.layout.favorites_layout) {
         // Input
         val output = viewModel.bind(
             FavoritesViewModel.Input(
-                refresh = refreshAction,
+                refresh = lifecycle.events().filter { it == Lifecycle.Event.ON_RESUME }.mapToUnit(),
                 didSelectAtIndex = adapter.onItemClick.asFlow()
             )
         )

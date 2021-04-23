@@ -23,3 +23,5 @@ fun <A, B: Any, R> Flow<A>.withLatestFrom(other: Flow<B>, transform: suspend (A,
         }
     }
 }
+
+fun <T> Flow<T>.mapToUnit() : Flow<Unit> = this.map {}

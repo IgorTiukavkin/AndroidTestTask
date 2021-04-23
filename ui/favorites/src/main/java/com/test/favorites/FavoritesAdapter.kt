@@ -9,6 +9,8 @@ import com.test.presentation.FavoriteItem
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.BroadcastChannel
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
+import kotlinx.coroutines.flow.map
+import reactivecircus.flowbinding.android.view.clicks
 
 @ExperimentalCoroutinesApi
 class FavoritesAdapter : RecyclerView.Adapter<FavoritesAdapter.ViewHolder>() {
